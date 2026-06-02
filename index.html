@@ -443,6 +443,24 @@ window.addDoc = addDoc;
 window.getDocs = getDocs;
 window.firestoreReady = true;
 console.log("Firestore Ready");
+async function loadBooks(){
+
+const querySnapshot =
+await getDocs(collection(db,"books"));
+
+books = [];
+
+querySnapshot.forEach((doc)=>{
+
+books.push(doc.data());
+
+});
+
+renderBooks();
+
+}
+
+loadBooks();
 </script>
 </body>
 </html>
