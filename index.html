@@ -242,6 +242,7 @@ footer{
 <option value="দান">দান</option>
 <option value="বিনিময়">বিনিময়</option>
 </select>
+    <input type="text" id="location" placeholder="জেলা / শহর">
 
 <input type="text" id="contact" placeholder="যোগাযোগ নম্বর">
 
@@ -276,6 +277,7 @@ let title=document.getElementById("title").value;
 let author=document.getElementById("author").value;
 let category=document.getElementById("category").value;
 let type=document.getElementById("type").value;
+let location=document.getElementById("location").value;
 let contact=document.getElementById("contact").value;
 let image=document.getElementById("image").value;
 let desc=document.getElementById("desc").value;
@@ -290,6 +292,7 @@ title,
 author,
 category,
 type,
+location,
 contact,
 image:image || "https://picsum.photos/500/300",
 desc
@@ -338,6 +341,7 @@ html+=`
 <p><b>লেখক:</b> ${book.author}</p>
 
 <p><b>বিভাগ:</b> ${book.category}</p>
+<p><b>📍 স্থান:</b> ${book.location}</p>
 
 <p>${book.desc}</p>
 
