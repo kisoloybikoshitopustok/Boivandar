@@ -336,6 +336,33 @@ document.getElementById("bookList").innerHTML=html;
 }
 document.getElementById("search")
 .addEventListener("input",renderBooks);
+let currentFontSize = 16;
+
+function increaseFont(){
+    currentFontSize += 2;
+    document.body.style.fontSize =
+    currentFontSize + "px";
+}
+
+function decreaseFont(){
+    currentFontSize -= 2;
+
+    if(currentFontSize < 12){
+        currentFontSize = 12;
+    }
+
+    document.body.style.fontSize =
+    currentFontSize + "px";
+}
+
+function resetFont(){
+    currentFontSize = 16;
+    document.body.style.fontSize = "16px";
+}
+
+function toggleTheme(){
+    document.body.classList.toggle("dark-mode");
+}
 </script>
 
 </body>
