@@ -444,6 +444,8 @@ document.getElementById("bookList").innerHTML=html;
 }
 async function deleteBook(id){
 
+console.log("Delete ID =", id);
+
 if(!confirm("এই বইটি মুছে ফেলতে চান?")){
 return;
 }
@@ -451,6 +453,8 @@ return;
 await window.deleteDoc(
 window.docRef(window.db,"books",id)
 );
+
+alert("Delete command sent");
 
 loadBooks();
 
