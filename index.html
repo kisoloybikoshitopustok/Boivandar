@@ -302,7 +302,16 @@ color:white;
 
 <button onclick="addBook()">বই যোগ করুন</button>
 </div>
+<h2>🆕 সদ্য যোগ করা বই</h2>
 
+<div id="recentBooks"
+style="
+display:flex;
+gap:10px;
+overflow:auto;
+margin-bottom:20px;
+">
+</div>
 <h2 id="books">উপলব্ধ বইসমূহ</h2>
 <br>
 <input
@@ -467,7 +476,38 @@ document.getElementById("bookList").innerHTML=html;
         document.getElementById("bookCount").innerText =
 "📚 মোট বই: " + books.length;
 }
+let recentHTML = "";
 
+books.slice(-3).reverse().forEach(book=>{
+
+recentHTML += `
+<div style="
+min-width:220px;
+background:white;
+padding:10px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+">
+
+<img src="${book.image}"
+style="
+width:100%;
+height:120px;
+object-fit:cover;
+border-radius:8px;
+">
+
+<h4>${book.title}</h4>
+
+<p>${book.category}</p>
+
+</div>
+`;
+
+});
+
+document.getElementById("recentBooks").innerHTML =
+recentHTML;
 document.getElementById("search")
 .addEventListener("input",renderBooks);
 let currentFontSize = 16;
