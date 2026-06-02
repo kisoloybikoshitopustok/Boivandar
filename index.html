@@ -271,6 +271,12 @@ let html="";
 
 books.forEach(book=>{
 
+if(
+!book.title.toLowerCase().includes(searchValue)
+){
+return;
+}
+
 html+=`
 <div class="card">
 
