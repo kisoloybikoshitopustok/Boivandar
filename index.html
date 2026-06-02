@@ -285,7 +285,7 @@ alert("বইয়ের নাম লিখুন");
 return;
 }
 
-books.push({
+const bookData = {
 title,
 author,
 category,
@@ -293,8 +293,16 @@ type,
 contact,
 image:image || "https://picsum.photos/500/300",
 desc
-});
+};
 
+books.push(bookData);
+
+if(window.firestoreReady){
+await window.addDoc(
+window.collection(window.db,"books"),
+bookData
+);
+}
 renderBooks();
 
 document.getElementById("title").value="";
