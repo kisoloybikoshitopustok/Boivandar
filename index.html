@@ -373,13 +373,13 @@ document.getElementById("search")
 .addEventListener("input",renderBooks);
 let currentFontSize = 16;
 
-function increaseFont(){
+window.increaseFont = function(){
     currentFontSize += 2;
     document.body.style.fontSize =
     currentFontSize + "px";
 }
 
-function decreaseFont(){
+window.decreaseFont = function(){
     currentFontSize -= 2;
 
     if(currentFontSize < 12){
@@ -390,12 +390,12 @@ function decreaseFont(){
     currentFontSize + "px";
 }
 
-function resetFont(){
+window.resetFont = function(){
     currentFontSize = 16;
     document.body.style.fontSize = "16px";
 }
 
-function toggleTheme(){
+window.toggleTheme = function(){
     document.body.classList.toggle("dark-mode");
 }
 </script>
