@@ -449,7 +449,7 @@ return;
 }
 
 await window.deleteDoc(
-window.doc(window.db,"books",id)
+window.docRef(window.db,"books",id)
 );
 
 loadBooks();
@@ -503,7 +503,9 @@ import {
 getFirestore,
 collection,
 addDoc,
-getDocs
+getDocs,
+deleteDoc,
+doc
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -524,7 +526,7 @@ window.collection = collection;
 window.addDoc = addDoc;
 window.getDocs = getDocs;
 window.deleteDoc = deleteDoc;
-window.doc = doc;
+window.docRef = doc;
 window.firestoreReady = true;
 console.log("Firestore Ready");
 async function loadBooks(){
