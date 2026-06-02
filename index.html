@@ -286,6 +286,16 @@ html{
 type="text"
 id="search"
 placeholder="বইয়ের নাম লিখে খুঁজুন">
+<select id="filterCategory" onchange="renderBooks()">
+<option value="">সব বিভাগ</option>
+<option value="গল্প">গল্প</option>
+<option value="উপন্যাস">উপন্যাস</option>
+<option value="পাঠ্যবই">পাঠ্যবই</option>
+<option value="বিজ্ঞান">বিজ্ঞান</option>
+<option value="NEET">NEET</option>
+<option value="JEE">JEE</option>
+<option value="WBJEE">WBJEE</option>
+</select>
 <div class="book-grid" id="bookList"></div>
 
 </div>
@@ -359,12 +369,21 @@ document.getElementById("desc").value="";
 function renderBooks(){
 let searchValue =
 document.getElementById("search").value.toLowerCase();
+let selectedCategory =
+document.getElementById("filterCategory").value;
 let html="";
 
 books.forEach(book=>{
 
 if(
 !book.title.toLowerCase().includes(searchValue)
+){
+return;
+}
+
+if(
+selectedCategory !== "" &&
+book.category !== selectedCategory
 ){
 return;
 }
