@@ -423,6 +423,16 @@ border-radius:6px;
 text-decoration:none;">
 Whatsapp করুন
 </a>
+<button
+onclick="deleteBook('${book.id}')"
+style="
+margin-top:10px;
+background:red;
+color:white;
+width:100%;
+">
+🗑️ মুছুন
+</button>
 </div>
 </div>
 `;
@@ -431,6 +441,19 @@ Whatsapp করুন
 document.getElementById("bookList").innerHTML=html;
         document.getElementById("bookCount").innerText =
 "📚 মোট বই: " + books.length;
+}
+async function deleteBook(id){
+
+if(!confirm("এই বইটি মুছে ফেলতে চান?")){
+return;
+}
+
+await window.deleteDoc(
+window.doc(window.db,"books",id)
+);
+
+loadBooks();
+
 }
 document.getElementById("search")
 .addEventListener("input",renderBooks);
@@ -500,6 +523,8 @@ window.db = db;
 window.collection = collection;
 window.addDoc = addDoc;
 window.getDocs = getDocs;
+window.deleteDoc = deleteDoc;
+window.doc = doc;
 window.firestoreReady = true;
 console.log("Firestore Ready");
 async function loadBooks(){
@@ -511,7 +536,10 @@ books = [];
 
 querySnapshot.forEach((doc)=>{
 
-books.push(doc.data());
+books.push({
+id: doc.id,
+...doc.data()
+});
 
 });
 
