@@ -391,7 +391,35 @@ function toggleTheme(){
     document.body.classList.toggle("dark-mode");
 }
 </script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs
+} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDc-Lj_oAPAzyLh7KBDj_mRAfvP9sIdRqg",
+  authDomain: "kisoloy-bikoshito-pustok.firebaseapp.com",
+  projectId: "kisoloy-bikoshito-pustok",
+  storageBucket: "kisoloy-bikoshito-pustok.firebasestorage.app",
+  messagingSenderId: "78896138747",
+  appId: "1:78896138747:web:9108969b7efa3c8be9a35e",
+  measurementId: "G-ZBVD2E5RYB"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.db = db;
+window.collection = collection;
+window.addDoc = addDoc;
+window.getDocs = getDocs;
+
+</script>
 </body>
 </html>
 
