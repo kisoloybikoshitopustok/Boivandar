@@ -134,7 +134,9 @@ footer{
     text-align:center;
     padding:15px;
 }
-
+html{
+    scroll-behavior:smooth;
+}
 .dark-mode{
     background:#121212;
     color:white;
@@ -173,7 +175,7 @@ footer{
 
 <body>
 
-<header>
+<header id="home">
 
 <img src="ChatGPT Image Jun 2, 2026, 04_45_19 PM.png" alt="কিশলয় বিকশিত পুস্তক" class="logo">
 
@@ -188,21 +190,14 @@ footer{
 
 <div class="container">
 <div style="background:white;padding:20px;border-radius:12px;margin-bottom:20px;">
-    <nav class="navbar">
-<a href="#">🏠 হোম</a>
-<a href="#">📚 বইসমূহ</a>
-<a href="#">🎁 বই দান</a>
-<a href="#">ℹ️ আমাদের সম্পর্কে</a>
-<a href="#">📞 যোগাযোগ</a>
-<button onclick="increaseFont()">A+</button>
-
-<button onclick="resetFont()">A</button>
-
-<button onclick="decreaseFont()">A-</button>
-
-<button onclick="toggleTheme()">🌙/🌞</button>
+<nav class="navbar">
+<a href="#home">🏠 হোম</a>
+<a href="#books">📚 বইসমূহ</a>
+<a href="#donate">🎁 বই দান</a>
+<a href="#about">ℹ️ আমাদের সম্পর্কে</a>
+<a href="#contact">📞 যোগাযোগ</a>
 </nav>
-<h2>আমাদের উদ্দেশ্য</h2>
+<h2 id="about">আমাদের উদ্দেশ্য</h2>
 
 <p>
 যে বই আমার আর প্রয়োজন নেই,
@@ -211,7 +206,7 @@ footer{
 </p>
 
 </div>
-<div class="form-box">
+<div class="form-box" id="donate">
 <h2>নতুন বই যোগ করুন</h2>
 
 <input type="text" id="title" placeholder="বইয়ের নাম">
@@ -253,7 +248,7 @@ footer{
 <button onclick="addBook()">বই যোগ করুন</button>
 </div>
 
-<h2>উপলব্ধ বইসমূহ</h2>
+<h2 id="books">উপলব্ধ বইসমূহ</h2>
 <br>
 <input
 type="text"
@@ -262,7 +257,20 @@ placeholder="বইয়ের নাম লিখে খুঁজুন">
 <div class="book-grid" id="bookList"></div>
 
 </div>
+<section id="contact"
+style="background:white;padding:20px;border-radius:12px;margin-top:20px;">
 
+<h2>📞 যোগাযোগ</h2>
+
+<p>WhatsApp: 919735486352</p>
+
+<p>Email: kartikknowledge@gmail.com</p>
+
+<p>
+বই দান বা বিনিময় সংক্রান্ত যেকোনো প্রশ্নের জন্য যোগাযোগ করুন।
+</p>
+
+</section>
 <footer>
 © 2026 কিশলয় বিকশিত পুস্তক | Share Books, Spread Knowledge
 </footer>
