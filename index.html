@@ -261,8 +261,7 @@ document.getElementById("author").value="";
 document.getElementById("contact").value="";
 document.getElementById("image").value="";
 document.getElementById("desc").value="";
-    document.getElementById("bookCount").innerText =
-"📚 মোট বই: " + books.length;
+    
 }
 
 function renderBooks(){
@@ -311,6 +310,8 @@ Whatsapp করুন 919735486352
 });
 
 document.getElementById("bookList").innerHTML=html;
+        document.getElementById("bookCount").innerText =
+"📚 মোট বই: " + books.length;
 }
 
 </script>
