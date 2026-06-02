@@ -265,7 +265,8 @@ document.getElementById("desc").value="";
 }
 
 function renderBooks(){
-
+let searchValue =
+document.getElementById("search").value.toLowerCase();
 let html="";
 
 books.forEach(book=>{
