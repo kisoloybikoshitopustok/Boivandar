@@ -320,7 +320,8 @@ document.getElementById("bookList").innerHTML=html;
         document.getElementById("bookCount").innerText =
 "📚 মোট বই: " + books.length;
 }
-
+document.getElementById("search")
+.addEventListener("input",renderBooks);
 </script>
 
 </body>
